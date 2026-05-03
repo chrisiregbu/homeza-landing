@@ -11,33 +11,38 @@
     font-family: Arial, sans-serif;
     background: #0b0f19;
     color: white;
+    line-height: 1.6;
   }
 
   .container {
-    max-width: 1000px;
+    max-width: 980px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 70px 20px;
   }
 
   /* HERO */
   .hero {
     text-align: center;
-    padding: 80px 20px;
+    padding: 90px 20px 70px;
   }
 
   h1 {
-    font-size: 56px;
+    font-size: 60px;
     margin: 0;
+    letter-spacing: -1px;
   }
 
-  .subtitle {
-    font-size: 20px;
-    color: #b8c0cc;
-    margin-top: 15px;
+  .tagline {
+    font-size: 22px;
+    color: #c3c9d4;
+    margin-top: 12px;
   }
 
-  .cta-box {
-    margin-top: 30px;
+  .desc {
+    color: #9aa3b2;
+    max-width: 650px;
+    margin: 18px auto;
+    font-size: 16px;
   }
 
   input {
@@ -45,6 +50,7 @@
     width: 260px;
     border-radius: 8px;
     border: none;
+    outline: none;
   }
 
   button {
@@ -55,12 +61,13 @@
     border-radius: 8px;
     cursor: pointer;
     margin-left: 10px;
+    font-weight: bold;
   }
 
   .small {
-    color: #8a93a3;
     margin-top: 12px;
     font-size: 13px;
+    color: #7f8aa3;
   }
 
   /* SECTIONS */
@@ -73,11 +80,21 @@
     margin-bottom: 10px;
   }
 
-  .card-grid {
+  .muted {
+    color: #aab3c2;
+  }
+
+  ul {
+    margin-top: 15px;
+    color: #cdd6e3;
+    line-height: 1.9;
+  }
+
+  .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    margin-top: 20px;
+    gap: 18px;
+    margin-top: 25px;
   }
 
   .card {
@@ -86,22 +103,21 @@
     border-radius: 12px;
   }
 
-  .muted {
-    color: #aab3c2;
-  }
-
-  ul {
-    line-height: 1.8;
-    color: #cdd6e3;
+  .card h3 {
+    margin-top: 0;
   }
 
   /* CTA */
   .cta {
     text-align: center;
-    margin-top: 80px;
-    padding: 60px;
+    margin-top: 90px;
+    padding: 70px 30px;
     background: #111827;
     border-radius: 16px;
+  }
+
+  .cta h2 {
+    margin-bottom: 10px;
   }
 </style>
 </head>
@@ -113,19 +129,19 @@
   <!-- HERO -->
   <div class="hero">
     <h1>Homeza</h1>
-    <p class="subtitle">Find homes. Fix problems. Live better.</p>
+    <p class="tagline">Find homes. Fix problems. Live better.</p>
 
-    <p class="muted">
+    <p class="desc">
       Homeza connects tenants, landlords, and property services in one place — 
       making housing simpler, faster, and more transparent.
     </p>
 
-    <div class="cta-box">
-      <input type="email" placeholder="Enter your email"/>
+    <div>
+      <input type="email" placeholder="Enter your email" />
       <button>Get Early Access</button>
-
-      <div class="small">Launching soon across Africa</div>
     </div>
+
+    <div class="small">Launching soon across Africa</div>
   </div>
 
   <!-- PROBLEM -->
@@ -134,7 +150,7 @@
     <p class="muted">Finding a home is easy. Living in one is not.</p>
 
     <ul>
-      <li>Tenants struggle to reach landlords when issues happen</li>
+      <li>Tenants struggle to reach landlords when issues occur</li>
       <li>Repairs take too long to arrange</li>
       <li>Tradespeople are hard to trust or verify</li>
       <li>Everything happens through WhatsApp and phone calls</li>
@@ -146,7 +162,7 @@
     <h2>What Homeza Does</h2>
     <p class="muted">A single system for everything around housing.</p>
 
-    <div class="card-grid">
+    <div class="grid">
       <div class="card">🏠 Discover and list homes</div>
       <div class="card">👤 Connect tenants and landlords instantly</div>
       <div class="card">🔧 Request and track repairs</div>
@@ -158,7 +174,7 @@
   <div class="section">
     <h2>Built for Everyone in Housing</h2>
 
-    <div class="card-grid">
+    <div class="grid">
       <div class="card">
         <h3>Tenants</h3>
         <p class="muted">Find homes and get issues fixed without delays.</p>
@@ -171,7 +187,7 @@
 
       <div class="card">
         <h3>Service Providers</h3>
-        <p class="muted">Receive verified jobs and build reputation.</p>
+        <p class="muted">Receive verified jobs and build long-term reputation.</p>
       </div>
     </div>
   </div>
@@ -180,8 +196,7 @@
   <div class="section">
     <h2>Why Homeza</h2>
     <p class="muted">
-      Unlike traditional listing sites or trade directories, Homeza connects
-      the entire lifecycle of housing — not just listings.
+      Unlike traditional listing sites or trade directories, Homeza connects the entire lifecycle of housing — not just listings.
     </p>
 
     <p class="muted">
@@ -192,10 +207,12 @@
   <!-- CTA -->
   <div class="cta">
     <h2>Be the First to Try Homeza</h2>
-    <p class="muted">Join early access and shape the future of housing.</p>
+    <p class="muted">Join early access and help shape the future of housing.</p>
 
-    <input type="email" placeholder="Enter your email"/>
-    <button>Get Early Access</button>
+    <div>
+      <input type="email" placeholder="Enter your email" />
+      <button>Get Early Access</button>
+    </div>
 
     <div class="small">Launching soon across Africa</div>
   </div>
