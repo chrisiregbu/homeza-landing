@@ -206,6 +206,7 @@ const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 
 async function submitEmail(inputId) {
   const email = document.getElementById(inputId).value;
+  const userType = document.getElementById("userType").value;
 
   if (!email) {
     alert("Please enter an email");
@@ -221,7 +222,10 @@ async function submitEmail(inputId) {
         "Authorization": `Bearer ${SUPABASE_KEY}`,
         "Prefer": "return=minimal"
       },
-      body: JSON.stringify({ email })
+      body: JSON.stringify({
+        email,
+        user_type: userType
+      })
     });
 
     if (res.ok) {
