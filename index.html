@@ -204,12 +204,13 @@ async function submitEmail() {
       },
       body: JSON.stringify({
         email,
-        role: userType
+        role: userType,
+        source: "hero"
       })
     });
 
     if (res.ok) {
-      alert("Thanks! You're on the list.");
+      alert("Joining...joined");
       document.getElementById("heroEmail").value = "";
     } else {
       const err = await res.text();
