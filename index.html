@@ -123,23 +123,17 @@
 
 <div class="container">
 
-  <!-- HERO -->
-  <div class="hero">
-    <h1>Homeza</h1>
-    <p class="tagline">Find homes. Stay connected. Live better.</p>
+ <div>
+  <select id="userType" style="padding:14px; border-radius:8px; border:none; margin-right:10px;">
+    <option value="tenant">I’m looking for a home</option>
+    <option value="landlord">I manage properties</option>
+    <option value="service">I offer home services</option>
+  </select>
 
-    <p class="desc">
-      Homeza helps you find homes, stay connected with the people around your property,
-      and access trusted services when you need them.
-    </p>
+  <input id="heroEmail" type="email" placeholder="Enter your email" />
 
-    <div>
-      <input id="heroEmail" type="email" placeholder="Enter your email" />
-      <button onclick="submitEmail('heroEmail')">Get Early Access</button>
-    </div>
-
-    <div class="small">Launching soon across Africa</div>
-  </div>
+  <button onclick="submitEmail('heroEmail')">Get Early Access</button>
+</div>
 
   <!-- WHY HOMEZA -->
   <div class="section">
