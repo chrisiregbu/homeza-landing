@@ -44,12 +44,13 @@
     font-size: 16px;
   }
 
-  input {
+  input, select {
     padding: 14px;
     width: 260px;
     border-radius: 8px;
     border: none;
     outline: none;
+    margin: 5px;
   }
 
   button {
@@ -59,8 +60,8 @@
     color: white;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 10px;
     font-weight: bold;
+    margin-left: 5px;
   }
 
   .small {
@@ -101,20 +102,12 @@
     border-radius: 12px;
   }
 
-  .card h3 {
-    margin-top: 0;
-  }
-
   .cta {
     text-align: center;
     margin-top: 90px;
     padding: 70px 30px;
     background: #111827;
     border-radius: 16px;
-  }
-
-  .cta h2 {
-    margin-bottom: 10px;
   }
 </style>
 </head>
@@ -123,80 +116,67 @@
 
 <div class="container">
 
- <div>
-  <select id="userType" style="padding:14px; border-radius:8px; border:none; margin-right:10px;">
-    <option value="tenant">I’m looking for a home</option>
-    <option value="landlord">I manage properties</option>
-    <option value="service">I offer home services</option>
-  </select>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Homeza</h1>
 
-  <input id="heroEmail" type="email" placeholder="Enter your email" />
+    <p class="tagline">Find homes. Stay connected. Live better.</p>
 
-  <button onclick="submitEmail('heroEmail')">Get Early Access</button>
-</div>
+    <p class="desc">
+      Homeza helps you find homes, stay connected with the people involved in your property,
+      and access trusted services when you need them.
+    </p>
 
-  <!-- WHY HOMEZA -->
+    <!-- EMAIL FORM -->
+    <div>
+      <select id="userType">
+        <option value="tenant">I’m looking for a home</option>
+        <option value="landlord">I manage properties</option>
+        <option value="service">I offer home services</option>
+      </select>
+
+      <input id="heroEmail" type="email" placeholder="Enter your email" />
+
+      <button onclick="submitEmail()">Get Early Access</button>
+    </div>
+
+    <div class="small">Launching soon across Africa</div>
+  </div>
+
+  <!-- WHY -->
   <div class="section">
     <h2>Why Homeza</h2>
 
     <p class="muted">
-      Renting and property management often involves multiple people, steps, and services that are not always easy to coordinate.
+      Renting and property management often involves multiple people and services that are not always easy to coordinate.
     </p>
 
     <ul>
       <li>Communication between tenants, landlords, and agents is often fragmented</li>
-      <li>Finding reliable tradespeople and arranging repairs can take time</li>
+      <li>Finding reliable tradespeople and arranging services can take time</li>
       <li>Property-related services are not always easy to discover or verify</li>
-      <li>Important updates and requests are often handled across different channels</li>
     </ul>
   </div>
 
-  <!-- WHAT HOMEZA DOES -->
+  <!-- WHAT -->
   <div class="section">
     <h2>What Homeza Does</h2>
-    <p class="muted">A single system for everything around housing.</p>
+    <p class="muted">A simple system for everything around homes.</p>
 
     <div class="grid">
       <div class="card">🏠 Discover and list homes</div>
-      <div class="card">👤 Connect tenants and landlords</div>
-      <div class="card">🔧 Arrange repairs and services</div>
-      <div class="card">⭐ Build trust through reviews and verification</div>
-    </div>
-  </div>
-
-  <!-- BUILT FOR -->
-  <div class="section">
-    <h2>Built for everyone in housing</h2>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Tenants</h3>
-        <p class="muted">Find homes and stay connected</p>
-      </div>
-
-      <div class="card">
-        <h3>Landlords</h3>
-        <p class="muted">Manage tenants and property needs</p>
-      </div>
-
-      <div class="card">
-        <h3>Service providers</h3>
-        <p class="muted">Get discovered and build reputation</p>
-      </div>
+      <div class="card">👤 Connect people around properties</div>
+      <div class="card">🔧 Access trusted services</div>
+      <div class="card">⭐ Build trust through reviews</div>
     </div>
   </div>
 
   <!-- CTA -->
- <div class="cta">
-  <h2>Be the first to try Homeza</h2>
-  <p class="muted">
-    Join early access and help shape how people manage homes.
-  </p>
-
-  <div class="small">
-    Launching soon across Africa
+  <div class="cta">
+    <h2>Be the first to try Homeza</h2>
+    <p class="muted">Join early access and help shape how people manage homes.</p>
+    <div class="small">Launching soon across Africa</div>
   </div>
-</div>
 
 </div>
 
@@ -204,8 +184,8 @@
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 
-async function submitEmail(inputId) {
-  const email = document.getElementById(inputId).value;
+async function submitEmail() {
+  const email = document.getElementById("heroEmail").value;
   const userType = document.getElementById("userType").value;
 
   if (!email) {
@@ -230,9 +210,11 @@ async function submitEmail(inputId) {
 
     if (res.ok) {
       alert("Thanks! You're on the list.");
-      document.getElementById(inputId).value = "";
+      document.getElementById("heroEmail").value = "";
     } else {
-      alert("Something went wrong. Check Supabase permissions.");
+      const err = await res.text();
+      console.error(err);
+      alert("Signup failed — check Supabase RLS policy.");
     }
   } catch (err) {
     console.error(err);
