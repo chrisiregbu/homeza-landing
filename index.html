@@ -137,8 +137,8 @@
     </p>
 
     <div>
-      <input type="email" placeholder="Enter your email" />
-      <button>Get Early Access</button>
+      <input id="heroEmail" type="email" placeholder="Enter your email" />
+      <button onclick="submitEmail('heroEmail')">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -210,8 +210,8 @@
     <p class="muted">Join early access and help shape the future of housing.</p>
 
     <div>
-      <input type="email" placeholder="Enter your email" />
-      <button>Get Early Access</button>
+      <input id="ctaEmail" type="email" placeholder="Enter your email" />
+      <button onclick="submitEmail('ctaEmail')">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -222,8 +222,8 @@
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 
-async function submitEmail() {
-  const email = document.getElementById("emailInput").value;
+async function submitEmail(inputId) {
+  const email = document.getElementById(inputId).value;
 
   if (!email) {
     alert("Please enter an email");
@@ -236,18 +236,20 @@ async function submitEmail() {
       headers: {
         "Content-Type": "application/json",
         "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        "Prefer": "return=minimal"
       },
       body: JSON.stringify({ email })
     });
 
     if (res.ok) {
       alert("Thanks! You're on the list.");
-      document.getElementById("emailInput").value = "";
+      document.getElementById(inputId).value = "";
     } else {
-      alert("Something went wrong. Check permissions.");
+      alert("Something went wrong. Check Supabase permissions.");
     }
   } catch (err) {
+    console.error(err);
     alert("Network error.");
   }
 }
