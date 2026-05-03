@@ -15,7 +15,7 @@
   <input placeholder="Enter your email" style="padding:10px; width:250px;" />
   <button style="padding:10px;">Get Early Access</button>
 
-  <p style="margin-top:40px;">Launching soon across Africa</p>
+  <p style="margin-top:40px;">Launching soon across Africa</p> 
 
 </body>
 </html>
