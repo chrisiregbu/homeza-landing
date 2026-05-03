@@ -136,8 +136,8 @@
       </select>
 
       <input id="heroEmail" type="email" placeholder="Enter your email" />
-
-      <button onclick="submitEmail()">Get Early Access</button>
+      
+      <button id="ctaBtn" onclick="submitEmail()">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -187,11 +187,15 @@ const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
-  
+
 async function submitEmail() {
-  const email = document.getElementById("heroEmail").value;
+  const emailInput = document.getElementById("heroEmail");
+  const button = document.getElementById("ctaBtn");
   const userType = document.getElementById("userType").value;
 
+  const email = emailInput.value.trim();
+
+  // VALIDATION
   if (!email) {
     alert("Please enter an email");
     return;
@@ -201,6 +205,10 @@ async function submitEmail() {
     alert("Please enter a valid email address");
     return;
   }
+
+  // LOADING STATE
+  button.disabled = true;
+  button.innerText = "Joining...";
 
   try {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
@@ -219,16 +227,25 @@ async function submitEmail() {
     });
 
     if (res.ok) {
-      alert("Joining...joined");
-      document.getElementById("heroEmail").value = "";
+      button.innerText = "You're on the list ✔";
+      emailInput.value = "";
     } else {
-      const err = await res.text();
-      console.error(err);
+      const errText = await res.text();
+      console.error(errText);
+
+      button.innerText = "Get Early Access";
+      button.disabled = false;
+
       alert("Signup failed — check Supabase RLS policy.");
     }
+
   } catch (err) {
     console.error(err);
-    alert("Network error.");
+
+    button.innerText = "Get Early Access";
+    button.disabled = false;
+
+    alert("Network error. Please try again.");
   }
 }
 </script>
