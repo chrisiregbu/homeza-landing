@@ -184,12 +184,21 @@
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+  
 async function submitEmail() {
   const email = document.getElementById("heroEmail").value;
   const userType = document.getElementById("userType").value;
 
   if (!email) {
     alert("Please enter an email");
+    return;
+  }
+
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email address");
     return;
   }
 
