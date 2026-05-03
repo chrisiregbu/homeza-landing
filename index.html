@@ -1,193 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Homeza - Find Homes. Fix Problems. Live Better.</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Homeza</title>
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
-      color: #111;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0b0f19;
+    color: white;
+  }
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-    }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    padding: 60px 20px;
+  }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
-      background: white;
-      border-radius: 12px;
-    }
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+  }
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
+  h1 {
+    font-size: 56px;
+    margin: 0;
+  }
 
-    .tagline {
-      font-size: 20px;
-      color: #555;
-      margin-bottom: 20px;
-    }
+  .subtitle {
+    font-size: 20px;
+    color: #b8c0cc;
+    margin-top: 15px;
+  }
 
-    input {
-      padding: 12px;
-      width: 60%;
-      max-width: 300px;
-      margin-top: 10px;
-    }
+  .cta-box {
+    margin-top: 30px;
+  }
 
-    button {
-      padding: 12px 18px;
-      margin-left: 10px;
-      background: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+  input {
+    padding: 14px;
+    width: 260px;
+    border-radius: 8px;
+    border: none;
+  }
 
-    section {
-      margin-top: 40px;
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-    }
+  button {
+    padding: 14px 18px;
+    border: none;
+    background: #4f7cff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
 
-    h2 {
-      margin-top: 0;
-    }
+  .small {
+    color: #8a93a3;
+    margin-top: 12px;
+    font-size: 13px;
+  }
 
-    ul {
-      line-height: 1.8;
-    }
+  /* SECTIONS */
+  .section {
+    margin-top: 80px;
+  }
 
-    .roles {
-      display: grid;
-      gap: 20px;
-    }
+  .section h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
 
-    .role {
-      background: #f0f0f0;
-      padding: 15px;
-      border-radius: 10px;
-    }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
 
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #777;
-    }
-  </style>
+  .card {
+    background: #151b2c;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .muted {
+    color: #aab3c2;
+  }
+
+  ul {
+    line-height: 1.8;
+    color: #cdd6e3;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin-top: 80px;
+    padding: 60px;
+    background: #111827;
+    border-radius: 16px;
+  }
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- HERO -->
-    <header>
-      <h1>Homeza</h1>
-      <p class="tagline"><strong>Find homes. Fix problems. Live better.</strong></p>
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Homeza</h1>
+    <p class="subtitle">Find homes. Fix problems. Live better.</p>
 
-      <p>
-        Homeza connects tenants, landlords, and property services in one place —
-        making housing simpler, faster, and more transparent.
-      </p>
+    <p class="muted">
+      Homeza connects tenants, landlords, and property services in one place — 
+      making housing simpler, faster, and more transparent.
+    </p>
 
-      <input type="email" placeholder="Enter your email" />
+    <div class="cta-box">
+      <input type="email" placeholder="Enter your email"/>
       <button>Get Early Access</button>
 
-      <p style="margin-top:15px;">Launching soon across Africa</p>
-    </header>
-
-    <!-- PROBLEM -->
-    <section>
-      <h2>The Problem</h2>
-      <p>Finding a home is easy. Managing it is not.</p>
-
-      <ul>
-        <li>Tenants struggle to reach landlords quickly</li>
-        <li>Repairs take too long to organise</li>
-        <li>Tradespeople are hard to trust or verify</li>
-        <li>Everything happens across WhatsApp and phone calls</li>
-      </ul>
-    </section>
-
-    <!-- SOLUTION -->
-    <section>
-      <h2>What Homeza Does</h2>
-      <p>Everything around housing, in one place.</p>
-
-      <ul>
-        <li>🏠 Find and list homes</li>
-        <li>👤 Connect tenants and landlords directly</li>
-        <li>🔧 Request and track property services</li>
-        <li>⭐ Rate and review trusted tradespeople</li>
-      </ul>
-    </section>
-
-    <!-- ROLES -->
-    <section>
-      <h2>Built for Everyone in Housing</h2>
-
-      <div class="roles">
-
-        <div class="role">
-          <h3>Tenants</h3>
-          <p>Find homes and request repairs without stress or delays.</p>
-        </div>
-
-        <div class="role">
-          <h3>Landlords</h3>
-          <p>Manage tenants and property issues in one simple system.</p>
-        </div>
-
-        <div class="role">
-          <h3>Service Providers</h3>
-          <p>Receive verified jobs and build a trusted reputation.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- WHY -->
-    <section>
-      <h2>Why Homeza</h2>
-
-      <p>
-        Unlike traditional listing sites or trade directories,
-        Homeza connects everything around a property — not just listings.
-      </p>
-
-      <p>
-        It’s a complete housing system, not just a marketplace.
-      </p>
-    </section>
-
-    <!-- FINAL CTA -->
-    <section style="text-align:center;">
-      <h2>Be the First to Try Homeza</h2>
-
-      <input type="email" placeholder="Enter your email" />
-      <button>Get Early Access</button>
-
-      <p>Launching soon across Africa</p>
-    </section>
-
-    <footer>
-      © 2026 Homeza. All rights reserved.
-    </footer>
-
+      <div class="small">Launching soon across Africa</div>
+    </div>
   </div>
+
+  <!-- PROBLEM -->
+  <div class="section">
+    <h2>The Problem</h2>
+    <p class="muted">Finding a home is easy. Living in one is not.</p>
+
+    <ul>
+      <li>Tenants struggle to reach landlords when issues happen</li>
+      <li>Repairs take too long to arrange</li>
+      <li>Tradespeople are hard to trust or verify</li>
+      <li>Everything happens through WhatsApp and phone calls</li>
+    </ul>
+  </div>
+
+  <!-- SOLUTION -->
+  <div class="section">
+    <h2>What Homeza Does</h2>
+    <p class="muted">A single system for everything around housing.</p>
+
+    <div class="card-grid">
+      <div class="card">🏠 Discover and list homes</div>
+      <div class="card">👤 Connect tenants and landlords instantly</div>
+      <div class="card">🔧 Request and track repairs</div>
+      <div class="card">⭐ Build trust through verified reviews</div>
+    </div>
+  </div>
+
+  <!-- ROLES -->
+  <div class="section">
+    <h2>Built for Everyone in Housing</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Tenants</h3>
+        <p class="muted">Find homes and get issues fixed without delays.</p>
+      </div>
+
+      <div class="card">
+        <h3>Landlords</h3>
+        <p class="muted">Manage tenants and property requests in one place.</p>
+      </div>
+
+      <div class="card">
+        <h3>Service Providers</h3>
+        <p class="muted">Receive verified jobs and build reputation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY -->
+  <div class="section">
+    <h2>Why Homeza</h2>
+    <p class="muted">
+      Unlike traditional listing sites or trade directories, Homeza connects
+      the entire lifecycle of housing — not just listings.
+    </p>
+
+    <p class="muted">
+      From finding a home to fixing it, everything happens in one place.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <h2>Be the First to Try Homeza</h2>
+    <p class="muted">Join early access and shape the future of housing.</p>
+
+    <input type="email" placeholder="Enter your email"/>
+    <button>Get Early Access</button>
+
+    <div class="small">Launching soon across Africa</div>
+  </div>
+
+</div>
 
 </body>
 </html>
