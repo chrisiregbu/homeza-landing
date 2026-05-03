@@ -234,16 +234,14 @@ async function submitEmail(inputId, button) {
       })
     });
 
-    // success (insert or merged duplicate)
-    if (res.ok || res.status === 409) {
+    if (res.ok) {
       button.innerText = "You're on the list ✔";
       emailInput.value = "";
       button.disabled = false;
       return;
     }
 
-    const errorText = await res.text();
-    console.error("Supabase error:", errorText);
+    console.error("Supabase error:", await res.text());
 
     button.disabled = false;
     button.innerText = "Get Early Access";
