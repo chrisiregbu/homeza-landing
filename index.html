@@ -137,7 +137,7 @@
 
       <input id="heroEmail" type="email" placeholder="Enter your email" />
       
-      <button id="ctaBtn" onclick="submitEmail()">Get Early Access</button>
+     <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -175,6 +175,14 @@
   <div class="cta">
     <h2>Be the first to try Homeza</h2>
     <p class="muted">Join early access and help shape how people manage homes.</p>
+    
+    <div>
+      <input id="ctaEmail" type="email" placeholder="Enter your email" />
+      <button onclick="submitEmail('ctaEmail', this)">
+       Get Early Access
+      </button>
+    </div>
+    
     <div class="small">Launching soon across Africa</div>
   </div>
 
@@ -188,16 +196,17 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-async function submitEmail() {
-  const emailInput = document.getElementById("heroEmail");
-  const button = document.getElementById("ctaBtn");
-  const userType = document.getElementById("userType").value;
+async function submitEmail(inputId, button) {
+  if (button.disabled) return;
 
-  const email = emailInput.value.trim();
+  const emailInput = document.getElementById(inputId);
+  const userTypeEl = document.getElementById("userType");
 
-  // VALIDATION
+  const email = emailInput.value.trim().toLowerCase();
+  const userType = userTypeEl ? userTypeEl.value : "unknown";
+
   if (!email) {
-    alert("Please enter an email");
+    alert("Please enter your email");
     return;
   }
 
@@ -206,7 +215,6 @@ async function submitEmail() {
     return;
   }
 
-  // LOADING STATE
   button.disabled = true;
   button.innerText = "Joining...";
 
@@ -217,38 +225,40 @@ async function submitEmail() {
         "Content-Type": "application/json",
         "apikey": SUPABASE_KEY,
         "Authorization": `Bearer ${SUPABASE_KEY}`,
-        "Prefer": "return=minimal"
+        "Prefer": "return=minimal, resolution=merge-duplicates"
       },
       body: JSON.stringify({
         email,
         role: userType,
-        source: "hero"
+        source: inputId
       })
     });
 
-    if (res.ok) {
+    // success (insert or merged duplicate)
+    if (res.ok || res.status === 409) {
       button.innerText = "You're on the list ✔";
       emailInput.value = "";
-    } else {
-      const errText = await res.text();
-      console.error(errText);
-
-      button.innerText = "Get Early Access";
       button.disabled = false;
-
-      alert("Signup failed — check Supabase RLS policy.");
+      return;
     }
 
-  } catch (err) {
-    console.error(err);
+    const errorText = await res.text();
+    console.error("Supabase error:", errorText);
 
-    button.innerText = "Get Early Access";
     button.disabled = false;
+    button.innerText = "Get Early Access";
+
+    alert("Something went wrong. Please try again.");
+
+  } catch (err) {
+    console.error("Network error:", err);
+
+    button.disabled = false;
+    button.innerText = "Get Early Access";
 
     alert("Network error. Please try again.");
   }
 }
 </script>
-
 </body>
 </html>
