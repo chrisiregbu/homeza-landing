@@ -120,14 +120,15 @@
   <div class="hero">
     <h1>Homeza</h1>
 
-    <p class="tagline">Find homes. Stay connected. Live better.</p>
-
-    <p class="desc">
-      Homeza helps you find homes, stay connected with the people involved in your property,
-      and access trusted services when you need them.
+    <p class="tagline">
+      Find homes you can trust. Stay connected. Live better.
     </p>
 
-    <!-- EMAIL FORM -->
+    <p class="desc">
+      People already use social platforms to find homes. Homeza brings everything into one place —
+      verified listings, direct communication, and trusted services — so you can search with confidence.
+    </p>
+
     <div>
       <select id="userType">
         <option value="tenant">I’m looking for a home</option>
@@ -136,8 +137,7 @@
       </select>
 
       <input id="heroEmail" type="email" placeholder="Enter your email" />
-      
-     <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
+      <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -148,24 +148,26 @@
     <h2>Why Homeza</h2>
 
     <p class="muted">
-      Renting and property management often involves multiple people and services that are not always easy to coordinate.
+      Today, many people find homes through informal channels like social media. While it can work,
+      it often comes with uncertainty and extra effort.
     </p>
 
     <ul>
+      <li>Listings are scattered across platforms and hard to verify</li>
       <li>Communication between tenants, landlords, and agents is often fragmented</li>
-      <li>Finding reliable tradespeople and arranging services can take time</li>
-      <li>Property-related services are not always easy to discover or verify</li>
+      <li>Finding reliable services and trusted contacts takes time</li>
+      <li>There’s no simple way to build trust before making decisions</li>
     </ul>
   </div>
 
   <!-- WHAT -->
   <div class="section">
     <h2>What Homeza Does</h2>
-    <p class="muted">A simple system for everything around homes.</p>
+    <p class="muted">A simpler, more trusted system for everything around homes.</p>
 
     <div class="grid">
-      <div class="card">🏠 Discover and list homes</div>
-      <div class="card">👤 Connect people around properties</div>
+      <div class="card">🏠 Discover verified homes</div>
+      <div class="card">👤 Connect everyone involved</div>
       <div class="card">🔧 Access trusted services</div>
       <div class="card">⭐ Build trust through reviews</div>
     </div>
@@ -173,16 +175,19 @@
 
   <!-- CTA -->
   <div class="cta">
-    <h2>Be the first to try Homeza</h2>
-    <p class="muted">Join early access and help shape how people manage homes.</p>
-    
+    <h2>Search with confidence</h2>
+
+    <p class="muted">
+      Join early access and be among the first to experience a better way to find and manage homes.
+    </p>
+
     <div>
       <input id="ctaEmail" type="email" placeholder="Enter your email" />
       <button onclick="submitEmail('ctaEmail', this)">
-       Get Early Access
+        Get Early Access
       </button>
     </div>
-    
+
     <div class="small">Launching soon across Africa</div>
   </div>
 
@@ -258,5 +263,6 @@ async function submitEmail(inputId, button) {
   }
 }
 </script>
+
 </body>
 </html>
