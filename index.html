@@ -109,6 +109,31 @@
     background: #111827;
     border-radius: 16px;
   }
+
+  /* 🔥 MOCK UI */
+  .mock {
+    margin: 40px auto;
+    max-width: 700px;
+    background: #111827;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .mock-bar {
+    height: 40px;
+    background: #1f2937;
+  }
+
+  .mock-content {
+    padding: 30px;
+    text-align: left;
+    color: #cdd6e3;
+  }
+
+  .mock-content p {
+    margin: 10px 0;
+  }
 </style>
 </head>
 
@@ -129,6 +154,17 @@
       verified listings, direct communication, and trusted services — so you can search with confidence.
     </p>
 
+    <!-- 🔥 MOCK UI -->
+    <div class="mock">
+      <div class="mock-bar"></div>
+      <div class="mock-content">
+        <p>🏠 2 Bedroom Apartment – Lekki</p>
+        <p>💬 Chat with landlord</p>
+        <p>⭐ Verified listing</p>
+      </div>
+    </div>
+
+    <!-- EMAIL FORM -->
     <div>
       <select id="userType">
         <option value="tenant">I’m looking for a home</option>
