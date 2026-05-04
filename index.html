@@ -15,31 +15,32 @@
   }
 
   .container {
-    max-width: 980px;
+    max-width: 1000px;
     margin: auto;
     padding: 70px 20px;
   }
 
+  /* HERO */
   .hero {
     text-align: center;
     padding: 90px 20px 50px;
   }
 
   h1 {
-    font-size: 60px;
+    font-size: 58px;
     margin: 0;
     letter-spacing: -1px;
   }
 
   .tagline {
-    font-size: 22px;
+    font-size: 20px;
     color: #c3c9d4;
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   .desc {
     color: #9aa3b2;
-    max-width: 650px;
+    max-width: 700px;
     margin: 18px auto;
     font-size: 16px;
   }
@@ -49,50 +50,52 @@
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 25px;
+    margin-top: 30px;
+    flex-wrap: wrap;
   }
 
   .tab {
-    padding: 10px 14px;
+    padding: 10px 16px;
     border-radius: 20px;
-    border: 1px solid #2a3550;
+    background: #1a2236;
     cursor: pointer;
     font-size: 14px;
-    color: #aab3c2;
+    color: #cfd6e6;
+    transition: 0.2s;
   }
 
   .tab.active {
     background: #4f7cff;
-    border-color: #4f7cff;
     color: white;
   }
 
   /* MOCK */
   .mock {
-    margin-top: 25px;
-    background: #111827;
+    margin: 25px auto 0;
+    max-width: 720px;
+    background: #151b2c;
+    border-radius: 14px;
     padding: 25px;
-    border-radius: 12px;
     text-align: left;
   }
 
-  .mock-title {
-    font-weight: bold;
-    margin-bottom: 8px;
+  .mock h3 {
+    margin: 0 0 8px;
   }
 
-  .mock-text {
+  .mock p {
+    margin: 0;
     color: #aab3c2;
-    font-size: 14px;
   }
 
-  input, select {
+  /* FORM */
+  input {
     padding: 14px;
     width: 260px;
     border-radius: 8px;
     border: none;
     outline: none;
-    margin: 5px;
+    margin: 10px 5px;
   }
 
   button {
@@ -111,24 +114,35 @@
     color: #7f8aa3;
   }
 
+  /* SECTIONS */
   .section {
-    margin-top: 80px;
+    margin-top: 70px;
   }
 
   .section h2 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
-  ul {
-    margin-top: 15px;
-    color: #cdd6e3;
+  .muted {
+    color: #aab3c2;
+    max-width: 800px;
   }
 
+  /* SERVICES */
   .services {
     margin-top: 60px;
-    padding: 25px;
+    padding: 40px;
     background: #111827;
-    border-radius: 12px;
+    border-radius: 16px;
+  }
+
+  .services h2 {
+    margin-bottom: 20px;
+  }
+
+  .services ul {
+    color: #cdd6e3;
+    line-height: 2;
   }
 </style>
 </head>
@@ -139,32 +153,32 @@
 
   <!-- HERO -->
   <div class="hero">
+    <h1>Homeza</h1>
 
-    <h1 id="heroTitle">Find rental homes faster</h1>
+    <p class="tagline">Find homes faster — or let homes find you</p>
 
-    <p class="tagline" id="heroDesc">
-      Discover properties, connect with landlords, and access trusted home services — all in one place.
+    <p class="desc">
+      Homeza connects renters and landlords directly. Browse verified listings or post a “home wanted” ad with your budget and preferences.  
+      Landlords can respond instantly.
     </p>
 
     <!-- TABS -->
     <div class="tabs">
       <div class="tab active" onclick="setTab('renters', this)">Renters</div>
       <div class="tab" onclick="setTab('landlords', this)">Landlords</div>
-      <div class="tab" onclick="setTab('serviceProviders', this)">Service Providers</div>
+      <div class="tab" onclick="setTab('services', this)">Service Providers</div>
     </div>
 
     <!-- MOCK -->
-    <div class="mock">
-      <div class="mock-title" id="mockTitle">Browse rental listings</div>
-      <div class="mock-text" id="mockText">
-        Find verified apartments and connect directly with landlords.
-      </div>
+    <div class="mock" id="mockBox">
+      <h3>Find your next home faster</h3>
+      <p>Browse listings or post what you're looking for — landlords can contact you directly.</p>
     </div>
 
     <!-- EMAIL -->
-    <div style="margin-top:25px;">
-      <input id="email" type="email" placeholder="Enter your email" />
-      <button onclick="submitEmail(this)">Get Early Access</button>
+    <div>
+      <input id="heroEmail" type="email" placeholder="Enter your email" />
+      <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
@@ -173,24 +187,22 @@
   <!-- WHY -->
   <div class="section">
     <h2>Why Homeza</h2>
-    <ul>
-      <li>Many renters currently rely on informal channels to find homes</li>
-      <li>Listings are often unverified, increasing risk and uncertainty</li>
-      <li>Homeza centralises listings, communication, and services into one trusted platform</li>
-    </ul>
+
+    <p class="muted">
+      Today, renters often rely on informal channels to find housing. This creates fragmentation, slow discovery, and exposure to unreliable or unsafe listings.  
+      Homeza brings structure, trust, and direct matching between renters and landlords.
+    </p>
   </div>
 
   <!-- SERVICES -->
   <div class="services">
-    <h2>Our Services</h2>
-    <p><b>Advertise a whole property</b></p>
-    <p>List your property and reach verified renters directly</p>
+    <h2><b>Our services</b></h2>
 
-    <p><b>Post a property wanted ad</b></p>
-    <p>Describe what you're looking for and get matched faster</p>
-
-    <p><b>Advertise services</b></p>
-    <p>Offer repairs, cleaning, maintenance and home services</p>
+    <ul>
+      <li>Advertise a whole property</li>
+      <li>Post a property wanted ad</li>
+      <li>Advertise services</li>
+    </ul>
   </div>
 
 </div>
@@ -199,52 +211,43 @@
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
 
-let currentTab = "renters";
-
-const content = {
-  renters: {
-    title: "Find rental homes faster",
-    desc: "Discover properties, connect with landlords, and access trusted home services — all in one place.",
-    mockTitle: "Browse rental listings",
-    mockText: "Find verified apartments and connect directly with landlords."
-  },
-  landlords: {
-    title: "List and manage properties easily",
-    desc: "Advertise your property, manage enquiries, and connect with serious renters.",
-    mockTitle: "Manage your listings",
-    mockText: "Track enquiries, messages and tenant interest in one dashboard."
-  },
-  serviceProviders: {
-    title: "Reach homeowners who need your services",
-    desc: "Connect with renters and landlords looking for trusted home services.",
-    mockTitle: "Service marketplace",
-    mockText: "Get discovered for repairs, cleaning and maintenance work."
-  }
-};
-
 function setTab(tab, el) {
-  currentTab = tab;
-
   document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
   el.classList.add("active");
 
-  document.getElementById("heroTitle").innerText = content[tab].title;
-  document.getElementById("heroDesc").innerText = content[tab].desc;
+  const mock = document.getElementById("mockBox");
 
-  document.getElementById("mockTitle").innerText = content[tab].mockTitle;
-  document.getElementById("mockText").innerText = content[tab].mockText;
+  const content = {
+    renters: {
+      title: "Find your next home faster",
+      desc: "Browse listings or post a home wanted ad. Landlords can contact you directly."
+    },
+    landlords: {
+      title: "Fill vacancies faster",
+      desc: "List properties or view renter requests actively looking in your area."
+    },
+    services: {
+      title: "Get discovered by homeowners",
+      desc: "Offer repairs, cleaning, maintenance and home services in your area."
+    }
+  };
+
+  mock.innerHTML = `
+    <h3>${content[tab].title}</h3>
+    <p>${content[tab].desc}</p>
+  `;
 }
 
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-async function submitEmail(button) {
-  const emailInput = document.getElementById("email");
-  const email = emailInput.value.trim();
+async function submitEmail(inputId, button) {
+  const emailInput = document.getElementById(inputId);
+  const email = emailInput.value.trim().toLowerCase();
 
-  if (!email) return alert("Enter email");
-  if (!isValidEmail(email)) return alert("Invalid email");
+  if (!email) return alert("Please enter your email");
+  if (!isValidEmail(email)) return alert("Please enter a valid email");
 
   button.disabled = true;
   button.innerText = "Joining...";
@@ -260,8 +263,7 @@ async function submitEmail(button) {
       },
       body: JSON.stringify({
         email,
-        role: currentTab,
-        source: "hero"
+        source: inputId
       })
     });
 
@@ -271,14 +273,15 @@ async function submitEmail(button) {
       return;
     }
 
-    button.disabled = false;
     button.innerText = "Get Early Access";
+    button.disabled = false;
 
     alert("Something went wrong");
-  } catch (err) {
-    console.error(err);
-    button.disabled = false;
+
+  } catch (e) {
+    console.error(e);
     button.innerText = "Get Early Access";
+    button.disabled = false;
     alert("Network error");
   }
 }
