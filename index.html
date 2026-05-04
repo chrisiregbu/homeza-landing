@@ -11,55 +11,88 @@
     font-family: Arial, sans-serif;
     background: #0b0f19;
     color: white;
+    line-height: 1.6;
   }
 
   .container {
-    max-width: 1000px;
+    max-width: 980px;
     margin: auto;
-    padding: 60px 20px;
+    padding: 70px 20px;
   }
 
-  /* HERO */
   .hero {
     text-align: center;
-    padding: 70px 20px 40px;
+    padding: 90px 20px 50px;
   }
 
-  .brand {
-    font-size: 52px;
-    font-weight: 700;
-    letter-spacing: -1px;
+  h1 {
+    font-size: 60px;
     margin: 0;
+    letter-spacing: -1px;
   }
 
-  .subtitle {
-    font-size: 20px;
+  .tagline {
+    font-size: 22px;
     color: #c3c9d4;
-    margin-top: 10px;
+    margin-top: 12px;
   }
 
-  .hero-desc {
-    max-width: 700px;
-    margin: 15px auto 30px;
+  .desc {
     color: #9aa3b2;
+    max-width: 650px;
+    margin: 18px auto;
     font-size: 16px;
   }
 
-  /* INPUT */
-  .form-row {
+  /* TABS */
+  .tabs {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 25px;
+  }
+
+  .tab {
+    padding: 10px 14px;
+    border-radius: 20px;
+    border: 1px solid #2a3550;
+    cursor: pointer;
+    font-size: 14px;
+    color: #aab3c2;
+  }
+
+  .tab.active {
+    background: #4f7cff;
+    border-color: #4f7cff;
+    color: white;
+  }
+
+  /* MOCK */
+  .mock {
+    margin-top: 25px;
+    background: #111827;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: left;
+  }
+
+  .mock-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .mock-text {
+    color: #aab3c2;
+    font-size: 14px;
   }
 
   input, select {
     padding: 14px;
+    width: 260px;
     border-radius: 8px;
     border: none;
     outline: none;
-    width: 240px;
+    margin: 5px;
   }
 
   button {
@@ -72,100 +105,30 @@
     font-weight: bold;
   }
 
-  /* TABS */
-  .tabs {
-    margin-top: 60px;
-    text-align: center;
+  .small {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #7f8aa3;
   }
 
-  .tab-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
-  }
-
-  .tab-btn {
-    padding: 12px 18px;
-    border-radius: 999px;
-    background: #151b2c;
-    border: 1px solid #2a3550;
-    cursor: pointer;
-    color: #c3c9d4;
-    transition: 0.2s;
-  }
-
-  .tab-btn.active {
-    background: #4f7cff;
-    color: white;
-    border-color: #4f7cff;
-  }
-
-  .tab-content {
-    background: #111827;
-    padding: 25px;
-    border-radius: 14px;
-    max-width: 700px;
-    margin: auto;
-    text-align: left;
-  }
-
-  .tab-title {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  .tab-text {
-    color: #aab3c2;
-    line-height: 1.6;
-  }
-
-  /* WHY */
   .section {
     margin-top: 80px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .section h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
+    font-size: 28px;
   }
 
-  .section p {
-    color: #aab3c2;
-    line-height: 1.7;
+  ul {
+    margin-top: 15px;
+    color: #cdd6e3;
   }
 
-  /* SERVICES */
   .services {
-    margin-top: 80px;
-    text-align: center;
-  }
-
-  .services h2 {
-    font-size: 26px;
-    margin-bottom: 20px;
-  }
-
-  .service-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 15px;
-  }
-
-  .service-card {
-    background: #151b2c;
-    padding: 18px;
+    margin-top: 60px;
+    padding: 25px;
+    background: #111827;
     border-radius: 12px;
-  }
-
-  .small {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #7f8aa3;
   }
 </style>
 </head>
@@ -176,163 +139,147 @@
 
   <!-- HERO -->
   <div class="hero">
-    <h1 class="brand">Homeza</h1>
 
-    <p class="subtitle">Find. List. Manage homes — all in one place.</p>
+    <h1 id="heroTitle">Find rental homes faster</h1>
 
-    <p class="hero-desc">
-      A simple platform connecting renters, landlords, and service providers around homes.
-      Search, list, and manage everything in one structured place.
+    <p class="tagline" id="heroDesc">
+      Discover properties, connect with landlords, and access trusted home services — all in one place.
     </p>
 
-    <div class="form-row">
-      <select id="userType">
-        <option value="tenant">I’m looking for a home</option>
-        <option value="landlord">I manage properties</option>
-        <option value="service">I offer home services</option>
-      </select>
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" onclick="setTab('renters', this)">Renters</div>
+      <div class="tab" onclick="setTab('landlords', this)">Landlords</div>
+      <div class="tab" onclick="setTab('services', this)">Services</div>
+    </div>
 
-      <input id="heroEmail" type="email" placeholder="Enter your email" />
+    <!-- MOCK -->
+    <div class="mock">
+      <div class="mock-title" id="mockTitle">Browse rental listings</div>
+      <div class="mock-text" id="mockText">
+        Find verified apartments and connect directly with landlords.
+      </div>
+    </div>
 
-      <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
+    <!-- EMAIL -->
+    <div style="margin-top:25px;">
+      <input id="email" type="email" placeholder="Enter your email" />
+      <button onclick="submitEmail(this)">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
   </div>
 
-  <!-- TABS -->
-  <div class="tabs">
-
-    <div class="tab-buttons">
-      <button class="tab-btn active" onclick="switchTab('renters', this)">Renters</button>
-      <button class="tab-btn" onclick="switchTab('landlords', this)">Landlords</button>
-      <button class="tab-btn" onclick="switchTab('services', this)">Services</button>
-    </div>
-
-    <div class="tab-content" id="tabContent">
-      <div class="tab-title">Find your next home with confidence</div>
-      <div class="tab-text">
-        Browse available properties, connect directly with landlords, and reduce uncertainty in the rental process.
-      </div>
-    </div>
-
-  </div>
-
   <!-- WHY -->
   <div class="section">
     <h2>Why Homeza</h2>
-    <p>
-      Finding a home today often happens through informal channels and scattered listings.
-      This makes trust and verification difficult for both renters and landlords.
-    </p>
-    <p>
-      Homeza brings structure, clarity, and trust to the entire home discovery process.
-    </p>
+    <ul>
+      <li>Many renters currently rely on informal channels to find homes</li>
+      <li>Listings are often unverified, increasing risk and uncertainty</li>
+      <li>Homeza centralises listings, communication, and services into one trusted platform</li>
+    </ul>
   </div>
 
   <!-- SERVICES -->
   <div class="services">
-    <h2><strong>Our Services</strong></h2>
+    <h2>Our Services</h2>
+    <p><b>Advertise a whole property</b></p>
+    <p>List your property and reach verified renters directly</p>
 
-    <div class="service-list">
-      <div class="service-card">
-        <strong>Advertise a whole property</strong>
-      </div>
+    <p><b>Post a property wanted ad</b></p>
+    <p>Describe what you're looking for and get matched faster</p>
 
-      <div class="service-card">
-        <strong>Post a property wanted ad</strong>
-      </div>
-
-      <div class="service-card">
-        <strong>Advertise services</strong>
-      </div>
-    </div>
+    <p><b>Advertise services</b></p>
+    <p>Offer repairs, cleaning, maintenance and home services</p>
   </div>
 
 </div>
 
-<script>  
-function switchTab(tab, btn) {
-  const content = document.getElementById("tabContent");
-
-  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-
-  if (tab === "renters") {
-    content.innerHTML = `
-      <div class="tab-title">Find your next home with confidence</div>
-      <div class="tab-text">
-        Browse available properties, connect directly with landlords, and reduce uncertainty in the rental process.
-      </div>`;
-  }
-
-  if (tab === "landlords") {
-    content.innerHTML = `
-      <div class="tab-title">List and manage your properties easily</div>
-      <div class="tab-text">
-        Advertise your properties, reach verified renters, and manage interest in one place.
-      </div>`;
-  }
-
-  if (tab === "services") {
-    content.innerHTML = `
-      <div class="tab-title">Offer or discover trusted home services</div>
-      <div class="tab-text">
-        Connect with people who need repairs, maintenance, or home-related services quickly and reliably.
-      </div>`;
-  }
-}
-
+<script>
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
-  
+
+let currentTab = "renters";
+
+const content = {
+  renters: {
+    title: "Find rental homes faster",
+    desc: "Discover properties, connect with landlords, and access trusted home services — all in one place.",
+    mockTitle: "Browse rental listings",
+    mockText: "Find verified apartments and connect directly with landlords."
+  },
+  landlords: {
+    title: "List and manage properties easily",
+    desc: "Advertise your property, manage enquiries, and connect with serious renters.",
+    mockTitle: "Manage your listings",
+    mockText: "Track enquiries, messages and tenant interest in one dashboard."
+  },
+  services: {
+    title: "Reach homeowners who need your services",
+    desc: "Connect with renters and landlords looking for trusted home services.",
+    mockTitle: "Service marketplace",
+    mockText: "Get discovered for repairs, cleaning and maintenance work."
+  }
+};
+
+function setTab(tab, el) {
+  currentTab = tab;
+
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  el.classList.add("active");
+
+  document.getElementById("heroTitle").innerText = content[tab].title;
+  document.getElementById("heroDesc").innerText = content[tab].desc;
+
+  document.getElementById("mockTitle").innerText = content[tab].mockTitle;
+  document.getElementById("mockText").innerText = content[tab].mockText;
+}
+
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-async function submitEmail(inputId, button) {
-  const emailInput = document.getElementById(inputId);
-  const userType = document.getElementById("userType").value;
-
+async function submitEmail(button) {
+  const emailInput = document.getElementById("email");
   const email = emailInput.value.trim();
 
-  if (!email) {
-    alert("Please enter your email");
-    return;
-  }
-
-  if (!isValidEmail(email)) {
-    alert("Please enter a valid email address");
-    return;
-  }
+  if (!email) return alert("Enter email");
+  if (!isValidEmail(email)) return alert("Invalid email");
 
   button.disabled = true;
   button.innerText = "Joining...";
 
   try {
-    await fetch("YOUR_SUPABASE_URL/rest/v1/emails", {
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "apikey": "YOUR_SUPABASE_KEY",
-        "Authorization": "Bearer YOUR_SUPABASE_KEY",
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
         "Prefer": "return=minimal, resolution=merge-duplicates"
       },
       body: JSON.stringify({
         email,
-        role: userType,
-        source: inputId
+        role: currentTab,
+        source: "hero"
       })
     });
 
-    button.innerText = "You're on the list ✔";
-    emailInput.value = "";
+    if (res.ok) {
+      button.innerText = "You're on the list ✔";
+      emailInput.value = "";
+      return;
+    }
 
+    button.disabled = false;
+    button.innerText = "Get Early Access";
+
+    alert("Something went wrong");
   } catch (err) {
     console.error(err);
     button.disabled = false;
     button.innerText = "Get Early Access";
-    alert("Something went wrong. Please try again.");
+    alert("Network error");
   }
 }
 </script>
