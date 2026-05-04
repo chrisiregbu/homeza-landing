@@ -11,46 +11,55 @@
     font-family: Arial, sans-serif;
     background: #0b0f19;
     color: white;
-    line-height: 1.6;
   }
 
   .container {
-    max-width: 980px;
+    max-width: 1000px;
     margin: auto;
-    padding: 70px 20px;
+    padding: 60px 20px;
   }
 
+  /* HERO */
   .hero {
     text-align: center;
-    padding: 90px 20px 70px;
+    padding: 70px 20px 40px;
   }
 
-  h1 {
-    font-size: 60px;
-    margin: 0;
+  .brand {
+    font-size: 52px;
+    font-weight: 700;
     letter-spacing: -1px;
+    margin: 0;
   }
 
-  .tagline {
-    font-size: 22px;
+  .subtitle {
+    font-size: 20px;
     color: #c3c9d4;
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
-  .desc {
+  .hero-desc {
+    max-width: 700px;
+    margin: 15px auto 30px;
     color: #9aa3b2;
-    max-width: 650px;
-    margin: 18px auto;
     font-size: 16px;
+  }
+
+  /* INPUT */
+  .form-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
   }
 
   input, select {
     padding: 14px;
-    width: 260px;
     border-radius: 8px;
     border: none;
     outline: none;
-    margin: 5px;
+    width: 240px;
   }
 
   button {
@@ -61,78 +70,102 @@
     border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
-    margin-left: 5px;
   }
 
-  .small {
-    margin-top: 12px;
-    font-size: 13px;
-    color: #7f8aa3;
+  /* TABS */
+  .tabs {
+    margin-top: 60px;
+    text-align: center;
   }
 
-  .section {
-    margin-top: 80px;
+  .tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
   }
 
-  .section h2 {
-    font-size: 28px;
+  .tab-btn {
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: #151b2c;
+    border: 1px solid #2a3550;
+    cursor: pointer;
+    color: #c3c9d4;
+    transition: 0.2s;
+  }
+
+  .tab-btn.active {
+    background: #4f7cff;
+    color: white;
+    border-color: #4f7cff;
+  }
+
+  .tab-content {
+    background: #111827;
+    padding: 25px;
+    border-radius: 14px;
+    max-width: 700px;
+    margin: auto;
+    text-align: left;
+  }
+
+  .tab-title {
+    font-size: 20px;
     margin-bottom: 10px;
   }
 
-  .muted {
+  .tab-text {
     color: #aab3c2;
+    line-height: 1.6;
   }
 
-  ul {
-    margin-top: 15px;
-    color: #cdd6e3;
-    line-height: 1.9;
+  /* WHY */
+  .section {
+    margin-top: 80px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .grid {
+  .section h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .section p {
+    color: #aab3c2;
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services {
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .services h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+  }
+
+  .service-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 18px;
-    margin-top: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
   }
 
-  .card {
+  .service-card {
     background: #151b2c;
-    padding: 20px;
+    padding: 18px;
     border-radius: 12px;
   }
 
-  .cta {
-    text-align: center;
-    margin-top: 90px;
-    padding: 70px 30px;
-    background: #111827;
-    border-radius: 16px;
-  }
-
-  /* 🔥 MOCK UI */
-  .mock {
-    margin: 40px auto;
-    max-width: 700px;
-    background: #111827;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-
-  .mock-bar {
-    height: 40px;
-    background: #1f2937;
-  }
-
-  .mock-content {
-    padding: 30px;
-    text-align: left;
-    color: #cdd6e3;
-  }
-
-  .mock-content p {
-    margin: 10px 0;
+  .small {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #7f8aa3;
   }
 </style>
 </head>
@@ -143,29 +176,16 @@
 
   <!-- HERO -->
   <div class="hero">
-    <h1>Homeza</h1>
+    <h1 class="brand">Homeza</h1>
 
-    <p class="tagline">
-      Find homes you can trust. Stay connected. Live better.
+    <p class="subtitle">Find. List. Manage homes — all in one place.</p>
+
+    <p class="hero-desc">
+      A simple platform connecting renters, landlords, and service providers around homes.
+      Search, list, and manage everything in one structured place.
     </p>
 
-    <p class="desc">
-      People already use social platforms to find homes. Homeza brings everything into one place —
-      verified listings, direct communication, and trusted services — so you can search with confidence.
-    </p>
-
-    <!-- 🔥 MOCK UI -->
-    <div class="mock">
-      <div class="mock-bar"></div>
-      <div class="mock-content">
-        <p>🏠 2 Bedroom Apartment – Lekki</p>
-        <p>💬 Chat with landlord</p>
-        <p>⭐ Verified listing</p>
-      </div>
-    </div>
-
-    <!-- EMAIL FORM -->
-    <div>
+    <div class="form-row">
       <select id="userType">
         <option value="tenant">I’m looking for a home</option>
         <option value="landlord">I manage properties</option>
@@ -173,78 +193,108 @@
       </select>
 
       <input id="heroEmail" type="email" placeholder="Enter your email" />
+
       <button onclick="submitEmail('heroEmail', this)">Get Early Access</button>
     </div>
 
     <div class="small">Launching soon across Africa</div>
   </div>
 
+  <!-- TABS -->
+  <div class="tabs">
+
+    <div class="tab-buttons">
+      <button class="tab-btn active" onclick="switchTab('renters', this)">Renters</button>
+      <button class="tab-btn" onclick="switchTab('landlords', this)">Landlords</button>
+      <button class="tab-btn" onclick="switchTab('services', this)">Services</button>
+    </div>
+
+    <div class="tab-content" id="tabContent">
+      <div class="tab-title">Find your next home with confidence</div>
+      <div class="tab-text">
+        Browse available properties, connect directly with landlords, and reduce uncertainty in the rental process.
+      </div>
+    </div>
+
+  </div>
+
   <!-- WHY -->
   <div class="section">
     <h2>Why Homeza</h2>
-
-    <p class="muted">
-      Today, many people find homes through informal channels like social media. While it can work,
-      it often comes with uncertainty and extra effort.
+    <p>
+      Finding a home today often happens through informal channels and scattered listings.
+      This makes trust and verification difficult for both renters and landlords.
     </p>
-
-    <ul>
-      <li>Listings are scattered across platforms and hard to verify</li>
-      <li>Communication between tenants, landlords, and agents is often fragmented</li>
-      <li>Finding reliable services and trusted contacts takes time</li>
-      <li>There’s no simple way to build trust before making decisions</li>
-    </ul>
+    <p>
+      Homeza brings structure, clarity, and trust to the entire home discovery process.
+    </p>
   </div>
 
-  <!-- WHAT -->
-  <div class="section">
-    <h2>What Homeza Does</h2>
-    <p class="muted">A simpler, more trusted system for everything around homes.</p>
+  <!-- SERVICES -->
+  <div class="services">
+    <h2><strong>Our Services</strong></h2>
 
-    <div class="grid">
-      <div class="card">🏠 Discover verified homes</div>
-      <div class="card">👤 Connect everyone involved</div>
-      <div class="card">🔧 Access trusted services</div>
-      <div class="card">⭐ Build trust through reviews</div>
+    <div class="service-list">
+      <div class="service-card">
+        <strong>Advertise a whole property</strong>
+      </div>
+
+      <div class="service-card">
+        <strong>Post a property wanted ad</strong>
+      </div>
+
+      <div class="service-card">
+        <strong>Advertise services</strong>
+      </div>
     </div>
-  </div>
-
-  <!-- CTA -->
-  <div class="cta">
-    <h2>Search with confidence</h2>
-
-    <p class="muted">
-      Join early access and be among the first to experience a better way to find and manage homes.
-    </p>
-
-    <div>
-      <input id="ctaEmail" type="email" placeholder="Enter your email" />
-      <button onclick="submitEmail('ctaEmail', this)">
-        Get Early Access
-      </button>
-    </div>
-
-    <div class="small">Launching soon across Africa</div>
   </div>
 
 </div>
 
-<script>
+<script>  
+function switchTab(tab, btn) {
+  const content = document.getElementById("tabContent");
+
+  document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  if (tab === "renters") {
+    content.innerHTML = `
+      <div class="tab-title">Find your next home with confidence</div>
+      <div class="tab-text">
+        Browse available properties, connect directly with landlords, and reduce uncertainty in the rental process.
+      </div>`;
+  }
+
+  if (tab === "landlords") {
+    content.innerHTML = `
+      <div class="tab-title">List and manage your properties easily</div>
+      <div class="tab-text">
+        Advertise your properties, reach verified renters, and manage interest in one place.
+      </div>`;
+  }
+
+  if (tab === "services") {
+    content.innerHTML = `
+      <div class="tab-title">Offer or discover trusted home services</div>
+      <div class="tab-text">
+        Connect with people who need repairs, maintenance, or home-related services quickly and reliably.
+      </div>`;
+  }
+}
+
 const SUPABASE_URL = "https://tkfcbkcgustbwjjdhqyf.supabase.co";
 const SUPABASE_KEY = "sb_publishable_KuLNfPQ1iqZ87O_bVfA1Hg_9b0pg29p";
-
+  
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 async function submitEmail(inputId, button) {
-  if (button.disabled) return;
-
   const emailInput = document.getElementById(inputId);
-  const userTypeEl = document.getElementById("userType");
+  const userType = document.getElementById("userType").value;
 
-  const email = emailInput.value.trim().toLowerCase();
-  const userType = userTypeEl ? userTypeEl.value : "unknown";
+  const email = emailInput.value.trim();
 
   if (!email) {
     alert("Please enter your email");
@@ -260,12 +310,12 @@ async function submitEmail(inputId, button) {
   button.innerText = "Joining...";
 
   try {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/emails`, {
+    await fetch("YOUR_SUPABASE_URL/rest/v1/emails", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        "apikey": "YOUR_SUPABASE_KEY",
+        "Authorization": "Bearer YOUR_SUPABASE_KEY",
         "Prefer": "return=minimal, resolution=merge-duplicates"
       },
       body: JSON.stringify({
@@ -275,27 +325,14 @@ async function submitEmail(inputId, button) {
       })
     });
 
-    if (res.ok) {
-      button.innerText = "You're on the list ✔";
-      emailInput.value = "";
-      button.disabled = false;
-      return;
-    }
-
-    console.error("Supabase error:", await res.text());
-
-    button.disabled = false;
-    button.innerText = "Get Early Access";
-
-    alert("Something went wrong. Please try again.");
+    button.innerText = "You're on the list ✔";
+    emailInput.value = "";
 
   } catch (err) {
-    console.error("Network error:", err);
-
+    console.error(err);
     button.disabled = false;
     button.innerText = "Get Early Access";
-
-    alert("Network error. Please try again.");
+    alert("Something went wrong. Please try again.");
   }
 }
 </script>
